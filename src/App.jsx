@@ -33,7 +33,19 @@ const App = () => {
   useGSAP(() => {
     const main = document.querySelector(".main");
     main?.addEventListener("mousemove", (e) => {
-      console.log(e);
+      const xMove = (e.clientX / window.innerWidth - 0.5) * 40;
+       gsap.to(".imagesdiv .text", {
+        x: `${-30 - xMove * 0.1 }%`,
+      
+       })
+         gsap.to(".sky", {
+         x: xMove ,
+ 
+       })
+        gsap.to(".bg", {
+         x: xMove ,
+ 
+       })
     } );
   } ,[showContent]);
 
@@ -86,15 +98,15 @@ const App = () => {
               </div>
                 </div>
              
-            <div className='imagediv relative overflow-hidden  w-full h-screen '>
-              <img src="./sky.png" alt="sky"  className=' absolute top-0 left-0 w-full h-screen object-cover' />
-              <img src='./bg.png' alt='bg' className='w-full absolute h-screen object-cover'/>
-                <div className='text absolute  left-1/2 -translate-x-1/2 '>
-                  <h2 className='text-[11rem] ml-20 text-white font-bold leading-none'>Grand </h2>
-                  <h2 className='text-[11rem] -ml-40 text-white font-bold leading-none'>Theft</h2>
-                  <h2 className='text-[11rem] ml-20 text-white font-bold leading-none'>Auto</h2>
+            <div className='imagesdiv  relative overflow-hidden  w-full h-screen '>
+              <img src="./sky.png" alt="sky"  className=' sky absolute top-0 left-0 w-full h-screen object-cover' />
+              <img src='./bg.png' alt='bg'  className='bg scale-[2] w-full absolute h-screen object-cover'/>
+                <div className='text flex flex-col gap-4 absolute  left-1/2 -translate-x-1/2 '>
+                  <h2 className='text-[11rem]  ml-20 text-white font-bold leading-none'>Grand </h2>
+                  <h2 className='text-[11rem]  -ml-60 text-white font-bold leading-none'>Theft</h2>
+                  <h2 className='text-[11rem]  ml-30 text-white font-bold leading-none'>Auto</h2>
                 </div>
-              <img src="./girlbg.png"  alt="" className=' absolute w-[38%] -bottom-[35%]  left-1/2 -translate-x-1/2' />
+              <img src="./girlbg.png"  alt="" className=' character absolute w-[38%] -bottom-[35%]  left-1/2 -translate-x-1/2' />
                
             </div>
             <div className='bottombar text-white absolute bottom-0 left-0  w-full py-15 px-10 bg-gradient-to-t from-black'>
@@ -102,9 +114,23 @@ const App = () => {
             <i className="text-3xl ri-arrow-down-line"></i>
             <h2 className='text-2xl'> Scroll Down</h2>
             </div>
-            <img className='h-[55px] absolute top-1/2 left-1/2 -translate-1/2' src="./ps5.png" alt="" />
+            <img className='h-[45px] absolute top-1/2 left-1/2 -translate-1/2' src="./ps5.png" alt="" />
             </div>
           </div>     
+     
+    <div className='w-full h-screen flex 10px py-10 items-center justify-center bg-black'>
+      <div className='cntnr flex text-white  w-full h-[80%] py-10  '>
+        <div className='limg relative w-1/2 h-full '>
+         <img 
+         className='absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ' src="./imag.png" alt="" />
+        </div>
+        <div className='rg'>
+          <h1>Children are running </h1>
+        </div>
+      </div>
+
+    </div>
+
      </div>
      }
     </>
